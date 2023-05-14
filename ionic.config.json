@@ -1,0 +1,7 @@
+{
+  "name": "Magazin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
