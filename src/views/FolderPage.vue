@@ -17,9 +17,17 @@
       </ion-header>
 
       
-      <div id="container">
-        <strong class="capitalize">{{ $route.params.id }}</strong>
-        <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <div id="container" v-if="$route.params.id == 'Главная'">
+        <main-pgae/>
+      </div>
+      <div id="container" v-else-if="$route.params.id == 'Каталог'">
+        <catalog-page/>
+      </div>
+      <div id="container" v-else-if="$route.params.id == 'Любимое'">
+        <favorite-page/>
+      </div>
+      <div id="container" v-else>
+        <basket-page/>
       </div>
     </ion-content>
   </ion-page>
@@ -27,31 +35,12 @@
 
 <script setup lang="ts">
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import MainPgae from './Main/MainPgae.vue';
+import CatalogPage from './Catalog/CatalogPage.vue';
+import FavoritePage from './Favorite/FavoritePage.vue';
+import BasketPage from './Basket/BasketPage.vue'
 </script>
 
 <style scoped>
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
 </style>
